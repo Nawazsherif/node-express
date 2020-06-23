@@ -1,6 +1,8 @@
 const express  = require('express'),
     http = require('http');
 const dishRouter = require('./Routes/dishRouter');
+const promoRouter = require('./Routes/promoRouter');
+const leaderRouter = require('./Routes/leaderRouter');
 
 const app = express();
 const body_parser = require('body-parser');
@@ -10,6 +12,8 @@ const host = 'localhost';
 app.use(body_parser.json());
 
 app.use('/dishes', dishRouter);
+app.use('/promotions', promoRouter);
+app.use('/leaders', leaderRouter);
 
 app.use((req,res,next) => {
     console.log(req.body);
